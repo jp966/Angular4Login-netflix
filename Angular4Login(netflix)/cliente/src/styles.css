@@ -1,0 +1,63 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+mat-sidenav-container
+{
+  position: inherit !important
+}
+
+mat-sidenav
+{
+  background-color: #3f51b5 !important;
+}
+
+
+
+/* Formularios */
+
+.boton-aceptar{
+	background-color: #3366ff; 
+	color:white !important; 
+}
+
+
+/*Boostrap plus plus*/
+.btn{
+  width: 28px;
+  height: 28px;
+  /*padding-right: 30px;*/
+  padding-left: 0px;
+  border-radius:.125rem;
+  box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)
+}
+.btn .icono {
+font-size: 15px;
+-ms-transform: translate(8.5px, -3px); /* IE 9 */
+
+-webkit-transform: translate(8.5px, -3px); /* Safari */
+
+transform: translate(8.5px, -3px);
+/*-3 y -2*/
+
+}
+
+.btn .icono-grande {
+font-size: 15px;
+-ms-transform: translate(7.2px, -3px); /* IE 9 */
+
+-webkit-transform: translate(7.2px, -3px); /* Safari */
+
+transform: translate(7.2px, -3px);
+/*-3 y -2*/
+
+}
+/*
+.btn:focus{box-shadow:none}
+
+*/
+.btn.active,.btn:hover{
+  cursor:pointer;box-shadow:0 4px 10px 0 rgba(0,0,0,0.16),0 4px 20px 0 rgba(0,0,0,0.12)
+}
+
+
+
+

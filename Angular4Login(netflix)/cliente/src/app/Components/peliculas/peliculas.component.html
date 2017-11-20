@@ -1,0 +1,19 @@
+<div layout="row" layout-align="center start">
+  <h3>Películas</h3>
+</div>
+
+  <mat-card style="width: 500px;" *ngFor="let pelicula of totalPeliculas">
+    <mat-card-title>
+      <mat-card-title>
+        <span>{{ pelicula.titulo }}</span>
+      </mat-card-title>
+    </mat-card-title>
+    <mat-card-content>
+      <p>Director: {{ pelicula.director }}</p>
+      <p>Descripcion: {{ pelicula.descripcion }}</p>
+    </mat-card-content>
+    <mat-card-actions layout="row" layout-align="start center">
+      <button mat-button>Ver Pelicula</button>
+    </mat-card-actions>
+  </mat-card>
+

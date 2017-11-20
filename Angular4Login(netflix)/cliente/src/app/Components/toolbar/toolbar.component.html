@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" style="background-color:#cc0000;">
+    <img src="assets/netflix-logo.png" alt="" class="responsive-img" style="max-width: 50%; max-height: 50%">
+    <span class="example-spacer"></span>
+
+    <button mat-button *ngIf="isLogged===false" (click)="irLogin()">Iniciar sesión</button>
+    <button mat-button *ngIf="isLogged" (click)="cerrarSesion()">Cerrar sesión</button>
+
+</mat-toolbar>
