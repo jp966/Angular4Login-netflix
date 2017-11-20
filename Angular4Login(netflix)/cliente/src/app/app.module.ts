@@ -3,6 +3,9 @@ import {AuthenticationService} from './Services/authentication.service';
 import { EventosService } from './Services/eventos.service';
 import { PeliculasService } from './Services/peliculas.service';
 
+//GUARDS
+import { AuthGuard } from './Guards/auth.guard'; 
+import { LoginGuard } from './Guards/login.guard';
 
 //MODULOS
 import { HttpModule } from '@angular/http';
@@ -128,12 +131,16 @@ import { PrincipalComponent } from './Components/principal/principal.component';
 
   providers:
   [
+
+   //SERVICIOS
     appRoutingProviders,
     AuthenticationService,
     EventosService,
     PeliculasService,
 
-    //SERVICIOS
+    //GUARDS
+    AuthGuard,
+    LoginGuard,
   ],
 
   bootstrap:

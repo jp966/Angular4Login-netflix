@@ -11,6 +11,8 @@ export class AuthenticationService {
 	public headers;
 	public options;
 
+
+
 	constructor(private http: Http)
 	{
 		this.headers = new Headers({ 'Content-Type': 'application/json'});
@@ -18,6 +20,7 @@ export class AuthenticationService {
 
 		var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 		this.token = currentUser && currentUser.token;
+
 	}
 
 

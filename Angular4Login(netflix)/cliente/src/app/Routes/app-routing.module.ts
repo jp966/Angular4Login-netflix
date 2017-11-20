@@ -7,43 +7,18 @@ import { PeliculasComponent } from '../Components/peliculas/peliculas.component'
 
 import { PrincipalComponent } from '../Components/principal/principal.component'; 
 
+import { AuthGuard } from '../Guards/auth.guard';
+
+import { LoginGuard } from '../Guards/login.guard';
+
 const routes: Routes =
 [
 
-  { path: 'login',  component: LoginComponent },
+  { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
   
-  { path: 'peliculas',  component: PeliculasComponent },
+  { path: 'peliculas',  component: PeliculasComponent, canActivate: [AuthGuard]},
 
   { path: '',  component: PrincipalComponent }
-
-  /*
-  //MODULO PACIENTES
-  { path: 'ts',  component: TiposangreComponent },
-  { path: 'pac',  component: PacientesComponent },
-  { path: 'per',  component: PersonaComponent },
-  { path: 'usu',  component: UsuariosComponent },
-  { path: 'rol',  component: RolesComponent },
-  { path: 'reg',  component: RegionesComponent },
-  { path: 'pro',  component: ProvinciasComponent },
-  { path: 'pre',  component: PrevisionesComponent },
-  { path: 'com',  component: ComunasComponent },
-  { path: 'gen',  component: GenerosComponent },
-  { path: 'ec',  component: EstadocivilComponent },
-  { path: 'fm',  component: FichaMedicaComponent },
-
-  //MODULO CITAS
-
-  { path: 'cit',  component: CitaComponent },
-  { path: 'med',  component: MedicoComponent },
-  { path: 'esp',  component: EspecialidadComponent },
-  { path: 'es',  component: EstadocitaComponent },
-  { path: 'bc',  component: BoxconsultaComponent }
-
-*/
-
-
-
-
 
 ];
 

@@ -33,6 +33,14 @@ export class toolbarComponent implements OnInit {
   	this.router.navigate(['login']);
   }
 
+  irPeliculas(){
+    this.router.navigate(['peliculas']);
+  }
+
+  irInicio(){
+    this.router.navigate(['']);
+  }
+
 
   cerrarSesion(){
     this.isLogged=false;
