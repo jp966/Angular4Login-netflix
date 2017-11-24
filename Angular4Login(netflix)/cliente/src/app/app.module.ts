@@ -2,6 +2,10 @@
 import {AuthenticationService} from './Services/authentication.service';
 import { EventosService } from './Services/eventos.service';
 import { PeliculasService } from './Services/peliculas.service';
+import { NoticiasService } from './Services/noticias.service';
+import { CategoriasService } from './Services/categorias.service';
+
+
 
 //GUARDS
 import { AuthGuard } from './Guards/auth.guard'; 
@@ -62,6 +66,11 @@ import { LoginComponent } from './Components/login/login.component';
 import { toolbarComponent } from './Components/toolbar/toolbar.component';
 import { PeliculasComponent } from './Components/peliculas/peliculas.component';
 import { PrincipalComponent } from './Components/principal/principal.component';
+import { NoticiaComponent } from './Components/noticia/noticia.component';
+import { CategoriaComponent } from './Components/categoria/categoria.component';
+import { AgregarNoticiaComponent } from './Components/noticia/agregar-noticia/agregar-noticia.component';
+import { EditarNoticiaComponent } from './Components/noticia/editar-noticia/editar-noticia.component';
+import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/detalle-noticia.component';
 
 
 
@@ -75,7 +84,12 @@ import { PrincipalComponent } from './Components/principal/principal.component';
     LoginComponent,
     toolbarComponent,
     PeliculasComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    NoticiaComponent,
+    CategoriaComponent,
+    AgregarNoticiaComponent,
+    EditarNoticiaComponent,
+    DetalleNoticiaComponent
   ],
 
   entryComponents:
@@ -137,6 +151,8 @@ import { PrincipalComponent } from './Components/principal/principal.component';
     AuthenticationService,
     EventosService,
     PeliculasService,
+    NoticiasService,
+    CategoriasService,
 
     //GUARDS
     AuthGuard,

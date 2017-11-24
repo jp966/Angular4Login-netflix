@@ -1,0 +1,33 @@
+<h1 mat-dialog-title style="text-align: center;">Nueva noticia</h1>
+
+<div mat-dialog-content>
+
+  <p>Titular</p>
+
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.titular">
+
+  <p>Entrada</p>
+
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+
+   <p>Cuerpo</p>
+
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+
+   <p>Imágen</p>
+
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+
+   <p>Categoría</p>
+
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+
+  
+
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button class="boton-aceptar" (click)="agregarEstadoCita()" tabindex="2">Agregar estado cita</button>
+  <button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
+</div>

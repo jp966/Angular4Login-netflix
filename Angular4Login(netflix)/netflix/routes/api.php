@@ -25,6 +25,10 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 		Route::resource('pelicula','PeliculaController',['except'=>['create','edit']]);
 
 		Route::resource('users','UsersController',['except'=>['create','edit']]);
+
+		Route::resource('noticia','NoticiaController',['except'=>['create','edit']]);
+
+		Route::resource('categoria','CategoriaController',['except'=>['create','edit']]);
 	});	
 
 });
