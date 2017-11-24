@@ -11,12 +11,16 @@ import { AuthGuard } from '../Guards/auth.guard';
 
 import { LoginGuard } from '../Guards/login.guard';
 
+import { NoticiaComponent } from '../Components/noticia/noticia.component';
+
 const routes: Routes =
 [
 
   { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
   
   { path: 'peliculas',  component: PeliculasComponent, canActivate: [AuthGuard]},
+
+  { path: 'noticias', component: NoticiaComponent},
 
   { path: '',  component: PrincipalComponent }
 

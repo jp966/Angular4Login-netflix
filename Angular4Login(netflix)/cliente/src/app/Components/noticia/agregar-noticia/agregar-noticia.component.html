@@ -4,23 +4,33 @@
 
   <p>Titular</p>
 
-  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.titular">
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.titular" required>
 
   <p>Entrada</p>
 
-  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+  <mat-form-field style="width: 100% !important;" >
+    <textarea matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada" required></textarea>
+  </mat-form-field>
 
    <p>Cuerpo</p>
 
-  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+  <mat-form-field style="width: 100% !important;" >
+    <textarea matInput tabindex="1" [(ngModel)]="nuevaNoticia.cuerpo" required> </textarea>
+  </mat-form-field>
 
    <p>Imágen</p>
 
-  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.imagen" required>
 
    <p>Categoría</p>
 
-  <input matInput tabindex="1" [(ngModel)]="nuevaNoticia.entrada">
+  <mat-form-field style="width: 100% !important;">
+    <mat-select placeholder="Categoría" style="width: 100% !important;" required>
+      <mat-option style="width: 100% !important;" *ngFor="let categoria of totalCategorias" [value]="categoria.id" (click)="categoriaSeleccionada(categoria)">
+        {{ categoria.descripcion }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
   
 
@@ -28,6 +38,6 @@
 
 
 <div mat-dialog-actions>
-  <button mat-button class="boton-aceptar" (click)="agregarEstadoCita()" tabindex="2">Agregar estado cita</button>
+  <button mat-button class="boton-aceptar" (click)="agregarNoticia()" tabindex="2">Agregar noticia</button>
   <button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
 </div>

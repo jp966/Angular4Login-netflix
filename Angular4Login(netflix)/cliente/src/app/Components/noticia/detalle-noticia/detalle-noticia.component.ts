@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import { Noticia } from '../../../Models/noticia.model';
+import { Categoria } from '../../../Models/categoria.model';
 @Component({
   selector: 'app-detalle-noticia',
   templateUrl: './detalle-noticia.component.html',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalleNoticiaComponent implements OnInit {
 
-  constructor() { }
+	public noticia:any;
+
+  constructor(
+  	public dialogRef: MatDialogRef<DetalleNoticiaComponent>,
+	@Inject(MAT_DIALOG_DATA) public data: any
+	) { 
+
+  	this.noticia=data.noticia;
+
+  }
 
   ngOnInit() {
   }
+
+  	onNoClick()
+	{
+		this.dialogRef.close();
+	}
 
 }

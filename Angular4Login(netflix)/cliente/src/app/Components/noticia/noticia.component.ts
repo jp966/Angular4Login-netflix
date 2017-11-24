@@ -38,7 +38,7 @@ export class NoticiaComponent implements OnInit {
   public totalCategorias:Categoria[];
   public buscarPorTitular: boolean;
 
-  displayedColumns = ['Acciones', 'Nombre', 'Descripcion'];
+  displayedColumns = ['Acciones', 'Titular', 'Entrada'];
 
 
   //DATATABLE
@@ -53,15 +53,14 @@ export class NoticiaComponent implements OnInit {
 
   	this.totalNoticias=[];
     this.totalCategorias=[];
-    this.buscarPorTitular = false;
-
-
+    this.actualizarCategorias();
+    this.actualizarNoticias();
 
    }
 
   ngOnInit() {
 
-    this.dataSource = new ExampleDataSource(new ExampleDatabase([]), this.paginator, this.sort, 'EstadoCita');
+    this.dataSource = new ExampleDataSource(new ExampleDatabase([]), this.paginator, this.sort, 'Noticia');
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
         .debounceTime(150)
         .distinctUntilChanged()
@@ -101,7 +100,7 @@ export class NoticiaComponent implements OnInit {
     }
   }
 
-actualizarCategoria ()
+actualizarCategorias ()
   {
     this.servicioCategoria.getCategorias().subscribe(data => {
       var todo: any = data;
@@ -117,11 +116,12 @@ actualizarCategoria ()
       var todo: any = data;
       //todo = todo.data;
       this.totalNoticias = todo;
+      this.reemplazarIdPorString();
 
       //DATATABLE
       this.exampleDatabase  = new ExampleDatabase(this.totalNoticias);
 
-      this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, 'EstadoCita');
+      this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, 'Noticia');
       Observable.fromEvent(this.filter.nativeElement, 'keyup')
           .debounceTime(150)
           .distinctUntilChanged()
@@ -157,7 +157,7 @@ actualizarCategoria ()
       width: '700px',
       data:
       {
-       estadocita: noticia
+       noticia: a
       }
     });
 
@@ -170,7 +170,12 @@ actualizarCategoria ()
   agregacionNoticia()
   {
     let dialogRef = this.dialog.open(AgregarNoticiaComponent, {
-      width: '700px'
+      width: '700px',
+      data:{
+        totalCategorias:this.totalCategorias,
+        servicioCategoria:this.servicioCategoria,
+        servicioNoticia:this.servicioNoticia
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -182,9 +187,17 @@ actualizarCategoria ()
 
    detalleNoticia(noticia)
   {
+
+   // var a = JSON.parse( JSON.stringify(noticia) );
+
+   // this.pasarStringId(a);
+
+
     let dialogRef = this.dialog.open(DetalleNoticiaComponent, {
       width: '700px',
-      data: noticia
+      data:{
+        noticia:noticia
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -212,14 +225,14 @@ actualizarCategoria ()
   }
 
 
-  pasarStringId(boxconsulta)
+  pasarStringId(noticia)
   {
     for ( let i = 0 ; i < this.totalCategorias.length ; i ++)
     {
-    if(boxconsulta.TipoBox_id === this.totalCategorias[i].descripcion)
-    {
-      boxconsulta.TipoBox_id = this.totalCategorias[i].id;
-    }
+      if(noticia.categoria_id === this.totalCategorias[i].descripcion)
+        {
+          noticia.categoria_id = this.totalCategorias[i].id;
+        }
     }
 
   }

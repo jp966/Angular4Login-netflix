@@ -41,6 +41,11 @@ export class toolbarComponent implements OnInit {
     this.router.navigate(['']);
   }
 
+  irNoticias(){
+    this.router.navigate(['noticias']);
+  
+  }
+
 
   cerrarSesion(){
     this.isLogged=false;

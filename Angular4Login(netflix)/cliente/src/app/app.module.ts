@@ -96,7 +96,10 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
   [
     //Componentes de entrada para Modales en Materialize
    
-    MensajeErrorComponent
+    MensajeErrorComponent,
+    AgregarNoticiaComponent,
+    EditarNoticiaComponent,
+    DetalleNoticiaComponent
   ],
 
 
