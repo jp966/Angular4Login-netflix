@@ -1,4 +1,4 @@
 cliente/node_modules
 cliente/package-lock.json
-netflix/vendor
-netflix/composer.lock
+server/vendor
+server/composer.lock
