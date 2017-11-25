@@ -1,74 +1,56 @@
-
-<h5>Noticias</h5>
-
-<div class="example-header" >
-
-
-    <label for="finder">Buscar por titular...</label>
-    <input id="finder" matInput #filter >
-
+<div layout="row" layout-align="center start">
+  <h3>Noticias</h3>
 </div>
 
+<ul>
+  <li>
+  <mat-card class="tarjeta-noticia" *ngFor="let noticia of totalNoticias | paginate: { itemsPerPage: 3, currentPage: p }">
 
-<div class="example-container mat-elevation-z8">
+    <mat-card-title>
 
-  <mat-table #table [dataSource]="dataSource" matSort>
+      <mat-card-title>
+        <span style="justificado">{{ noticia.titular }}</span>
+      </mat-card-title>
 
-    <ng-container matColumnDef="Acciones">
-      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
-      <mat-cell *matCellDef="let row">
+    </mat-card-title>
 
-              <button  class="btn boton-editar" type="button" (click) = "edicionNoticia(row)" *ngIf="isLogged" matTooltip="Editar">
-                <i class="fa fa-pencil-square-o icono" aria-hidden="true"></i>
-              </button>
+    <mat-card-content>
 
+      <p style="justificado">{{ noticia.entrada }}</p>
 
-              <button class="btn boton-eliminar" type="button" (click) = "eliminarNoticia(row)" *ngIf="isLogged" matTooltip="Eliminar" >
-                <i class="fa fa-trash-o icono" aria-hidden="true"></i>
-              </button>
+    </mat-card-content>
 
-              <button class="btn boton-detalle" type="button" (click) = "detalleNoticia(row)" matTooltip="Ver detalles" >
-                <i class="fa fa-info-circle icono" aria-hidden="true"></i>
-              </button>
+    <img class="imagen-noticia" mat-card-image src={{noticia.imagen}}>
 
-       </mat-cell>
-    </ng-container>
+    <mat-card-actions layout="row" layout-align="start center">
+     
 
-
-    <!-- Progress Column -->
-    <ng-container matColumnDef="Titular">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Titular </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.titular}} </mat-cell>
-    </ng-container>
-
-        <!-- Name Column -->
-    <ng-container matColumnDef="Entrada">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> Entrada </mat-header-cell>
-      <mat-cell *matCellDef="let row"> {{row.entrada}} </mat-cell>
-    </ng-container>
+      <button  class="btn boton-editar" type="button" (click) = "edicionNoticia(noticia)" *ngIf="isLogged" matTooltip="Editar">
+        <i class="fa fa-pencil-square-o icono" aria-hidden="true"></i>
+      </button>
 
 
+      <button class="btn boton-eliminar" type="button" (click) = "eliminarNoticia(noticia)" *ngIf="isLogged" matTooltip="Eliminar" >
+        <i class="fa fa-trash-o icono" aria-hidden="true"></i>
+      </button>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      <button class="btn boton-detalle" type="button" (click) = "detalleNoticia(noticia)" matTooltip="Ver detalles" >
+        <i class="fa fa-info-circle icono" aria-hidden="true"></i>
+      </button>
 
-  </mat-table>
+    </mat-card-actions>
 
-  <div class="example-no-results"
-       [style.display]="dataSource.renderedData.length == 0 ? '' : 'none'">
-       No hay registros con dicho titular.
-  </div>
+  </mat-card>
+</li>
 
-  <mat-paginator #paginator
-                [length]="dataSource.filteredData.length"
-                [pageIndex]="0"
-                [pageSize]="5"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-  </mat-paginator>
-</div>
+</ul>
+
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
  <div class="fixed-action-btn" *ngIf="isLogged">
-		<a class="btn-floating btn-large boton-agregar" (click)="agregacionNoticia()">
-			<i class="large material-icons">add</i>
-		</a>
-	</div>
+    <a class="btn-floating btn-large boton-agregar" (click)="agregacionNoticia()">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+

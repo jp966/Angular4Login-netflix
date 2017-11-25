@@ -15,8 +15,11 @@ import { Noticia } from '../../Models/noticia.model';
 
 import { EventosService } from '../../Services/eventos.service';
 
+//paginator
+import {NgxPaginationModule} from 'ngx-pagination';
 
 //DATATABLE
+
 import {DataSource} from '@angular/cdk/collections';
 import {MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -43,11 +46,14 @@ export class NoticiaComponent implements OnInit {
   public totalUsuarios:Usuario[];
   //booleano para saber si esta logeado o no
   public isLogged:boolean=false;
+  //pagina de paginator
+  public p:number=1;
 
   displayedColumns = ['Acciones', 'Titular', 'Entrada'];
 
 
   //DATATABLE
+  
   exampleDatabase;
   selection = new SelectionModel<string>(true, []);
   dataSource: ExampleDataSource | null;
@@ -79,7 +85,7 @@ export class NoticiaComponent implements OnInit {
    }
 
   ngOnInit() {
-
+/*
     this.dataSource = new ExampleDataSource(new ExampleDatabase([]), this.paginator, this.sort, 'Noticia');
     Observable.fromEvent(this.filter.nativeElement, 'keyup')
         .debounceTime(150)
@@ -91,12 +97,13 @@ export class NoticiaComponent implements OnInit {
 
 
     this.exampleDatabase = []
+    */
 
   }
 
 
 //funciones apra trabajar búsquedas y datatable
-
+/*
   isAllSelected(): boolean
   {
     if (!this.dataSource) { return false; }
@@ -121,7 +128,7 @@ export class NoticiaComponent implements OnInit {
       this.exampleDatabase.data.forEach(data => this.selection.select(data.id));
     }
   }
-
+*/
 
 //funciones para llamar dialogs a través de los botones de acciones
 actualizarCategorias ()
@@ -150,6 +157,7 @@ actualizarCategorias ()
       this.reemplazarIdPorStringUsuario();
 
       //DATATABLE
+      /*
       this.exampleDatabase  = new ExampleDatabase(this.totalNoticias);
 
       this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, 'Noticia');
@@ -160,7 +168,7 @@ actualizarCategorias ()
             if (!this.dataSource) { return; }
             this.dataSource.filter = this.filter.nativeElement.value;
           })
-
+      */
 
     });
   }

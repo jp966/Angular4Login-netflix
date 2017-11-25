@@ -20,6 +20,13 @@
 .boton-detalle{
   background-color: #FFAA00 !important;
 }
+/* Textos */
+
+.justificado{
+  text-align: justify;
+  text-justify: inter-word;
+}
+
 
 /*Boostrap plus plus*/
 .btn{

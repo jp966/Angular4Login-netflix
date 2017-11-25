@@ -6,7 +6,8 @@ import { NoticiasService } from './Services/noticias.service';
 import { CategoriasService } from './Services/categorias.service';
 import { UsuariosService } from './Services/usuarios.service';
 
-
+//PIPES
+import {NgxPaginationModule} from 'ngx-pagination';
 
 //GUARDS
 import { AuthGuard } from './Guards/auth.guard'; 
@@ -145,6 +146,7 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
     MatToolbarModule,
     MatTooltipModule,
     MatFormFieldModule,
+    NgxPaginationModule,
   ],
 
   providers:

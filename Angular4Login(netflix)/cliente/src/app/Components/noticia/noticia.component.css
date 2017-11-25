@@ -1,0 +1,10 @@
+.tarjeta-noticia{
+	width: 450px;
+	background-color: #f2f2f2;
+	margin: 0px 10px 10px 10px;
+	display: inline-block;
+}
+
+.imagen-noticia{
+	height: 100%;
+}
