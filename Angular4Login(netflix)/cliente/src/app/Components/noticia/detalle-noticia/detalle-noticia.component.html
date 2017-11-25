@@ -4,32 +4,34 @@
 <div mat-dialog-content>
 
 
-<span class="titulo">Fecha</span>
+<p>
 
-<p>{{noticia.fecha}}</p>
+<span class="titulo">Fecha creación:</span> <span>{{noticia.fecha}}</span>
+
+<span class="titulo">Autor:</span> <span>{{noticia.usuario_id}}</span>
+
+<span class="titulo">Categoria:</span> <span>{{noticia.categoria_id}}</span>
+
+
+</p>
 
 
 <span class="titulo">Entrada</span>
 
-<p>{{noticia.entrada}}</p>
+<p class="justificado">{{noticia.entrada}}</p>
 
 
 <span class="titulo">Cuerpo</span>
 
-<p>{{noticia.cuerpo}}</p>
+<p class="justificado">{{noticia.cuerpo}}</p>
 
 
 <span class="titulo">Imagen</span>
-<p>{{noticia.imagen}}</p>
-
-<span class="titulo">Categoria</span>
-<p>{{noticia.categoria_id}}</p>
-
-<span class="titulo">Usuario</span>
-<p>{{noticia.usuario_id}}</p>
+<p>
+	<img class="imagen-noticia" src={{noticia.imagen}} alt="">
+</p>
 
 </div>
-
 
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()" tabindex="-1">Aceptar</button>

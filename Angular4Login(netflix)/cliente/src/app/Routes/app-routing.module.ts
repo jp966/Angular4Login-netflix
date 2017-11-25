@@ -17,8 +17,6 @@ const routes: Routes =
 [
 
   { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
-  
-  { path: 'peliculas',  component: PeliculasComponent, canActivate: [AuthGuard]},
 
   { path: 'noticias', component: NoticiaComponent},
 

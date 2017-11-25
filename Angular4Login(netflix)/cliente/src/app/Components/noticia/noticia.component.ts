@@ -10,6 +10,12 @@ import { CategoriasService } from '../../Services/categorias.service';
 import { Usuario } from '../../Models/usuario.model';
 import { UsuariosService } from '../../Services/usuarios.service';
 
+import { NoticiasService } from '../../Services/noticias.service';
+import { Noticia } from '../../Models/noticia.model'; 
+
+import { EventosService } from '../../Services/eventos.service';
+
+
 //DATATABLE
 import {DataSource} from '@angular/cdk/collections';
 import {MatPaginator, MatSort} from '@angular/material';
@@ -25,11 +31,6 @@ import 'rxjs/add/operator/debounceTime';
 import { ExampleDatabase, ExampleDataSource } from '../Globals/datasource.component';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
-
-
-import { NoticiasService } from '../../Services/noticias.service';
-import { Noticia } from '../../Models/noticia.model'; 
-
 @Component({
   selector: 'app-noticia',
   templateUrl: './noticia.component.html',
@@ -40,7 +41,8 @@ export class NoticiaComponent implements OnInit {
   public totalNoticias:Noticia[];
   public totalCategorias:Categoria[];
   public totalUsuarios:Usuario[];
-  public buscarPorTitular: boolean;
+  //booleano para saber si esta logeado o no
+  public isLogged:boolean=false;
 
   displayedColumns = ['Acciones', 'Titular', 'Entrada'];
 
@@ -54,7 +56,18 @@ export class NoticiaComponent implements OnInit {
   @ViewChild('filter') filter: ElementRef;
 
   constructor(public servicioNoticia:NoticiasService,public servicioCategoria:CategoriasService,
-    public dialog: MatDialog, public servicioUsuario:UsuariosService) {
+    public dialog: MatDialog, public servicioUsuario:UsuariosService, 
+      public eventosService:EventosService) {
+
+      //se determina si esta logeado o no el usuario
+     if(localStorage.getItem('currentUser')){
+       this.isLogged=true;
+     }
+
+     this.eventosService.isSignIn.subscribe(data=>{
+       this.isLogged=true;
+     });
+
 
   	this.totalNoticias=[];
     this.totalCategorias=[];

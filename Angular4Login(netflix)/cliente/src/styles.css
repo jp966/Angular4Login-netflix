@@ -1,24 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-mat-sidenav-container
-{
-  position: inherit !important
-}
-
-mat-sidenav
-{
-  background-color: #3f51b5 !important;
-}
-
-
 
 /* Formularios */
 
 .boton-aceptar{
-	background-color: #3366ff; 
+	background-color: #0f8a8a; 
 	color:white !important; 
 }
 
+.boton-eliminar{
+  background-color: #ff3333 !important;
+}
+
+
+.boton-editar{
+  background-color: #009999 !important;
+}
+
+.boton-detalle{
+  background-color: #FFAA00 !important;
+}
 
 /*Boostrap plus plus*/
 .btn{

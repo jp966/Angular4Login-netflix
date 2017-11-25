@@ -15,9 +15,9 @@ class Noticia extends Migration
     {
          Schema::create('noticia', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('titular');
-            $table->string('entrada');
-            $table->string('cuerpo');
+            $table->text('titular');
+            $table->text('entrada');
+            $table->text('cuerpo');
             $table->string('imagen');
             $table->date('fecha');
             $table->integer('categoria_id')->unsigned();

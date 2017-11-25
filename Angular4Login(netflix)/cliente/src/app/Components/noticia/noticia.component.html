@@ -18,16 +18,16 @@
       <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
       <mat-cell *matCellDef="let row">
 
-              <button  class="btn boton-editar" type="button" (click) = "edicionNoticia(row)" matTooltip="Editar">
+              <button  class="btn boton-editar" type="button" (click) = "edicionNoticia(row)" *ngIf="isLogged" matTooltip="Editar">
                 <i class="fa fa-pencil-square-o icono" aria-hidden="true"></i>
               </button>
 
 
-              <button class="btn boton-eliminar" type="button" (click) = "eliminarNoticia(row)" matTooltip="Eliminar" >
+              <button class="btn boton-eliminar" type="button" (click) = "eliminarNoticia(row)" *ngIf="isLogged" matTooltip="Eliminar" >
                 <i class="fa fa-trash-o icono" aria-hidden="true"></i>
               </button>
 
-              <button class="btn boton-eliminar" type="button" (click) = "detalleNoticia(row)" matTooltip="Ver detalles" >
+              <button class="btn boton-detalle" type="button" (click) = "detalleNoticia(row)" matTooltip="Ver detalles" >
                 <i class="fa fa-info-circle icono" aria-hidden="true"></i>
               </button>
 
@@ -67,7 +67,7 @@
   </mat-paginator>
 </div>
 
- <div class="fixed-action-btn">
+ <div class="fixed-action-btn" *ngIf="isLogged">
 		<a class="btn-floating btn-large boton-agregar" (click)="agregacionNoticia()">
 			<i class="large material-icons">add</i>
 		</a>

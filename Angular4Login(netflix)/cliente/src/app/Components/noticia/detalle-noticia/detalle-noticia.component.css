@@ -1,5 +1,15 @@
 .titulo{
-	text-decoration: underline;
+	
 	font-size: 15px;
 	font-weight: bold;;
+}
+
+.justificado{
+	text-align: justify;
+    text-justify: inter-word;
+}
+
+.imagen-noticia{
+	max-width: 50%;
+	max-height: 50%;
 }
