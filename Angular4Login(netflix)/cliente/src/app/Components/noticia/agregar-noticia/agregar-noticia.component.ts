@@ -21,6 +21,7 @@ public servicioNoticia:any;
   	) {
 
   		this.nuevaNoticia=new Noticia();
+      this.nuevaNoticia.usuario_id=JSON.parse(localStorage.getItem('idCurrent')).id;
   		this.totalCategorias=data.totalCategorias;
   		this.servicioNoticia=data.servicioNoticia;
   		this.servicioCategoria=data.servicioCategoria

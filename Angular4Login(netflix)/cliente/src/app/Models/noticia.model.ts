@@ -7,7 +7,7 @@ export class Noticia {
   imagen:string;
   fecha:string;
   categoria_id:string;
-  usuario_id:number;
+  usuario_id:string;
 
   constructor()
   {
@@ -17,6 +17,6 @@ export class Noticia {
 	this.imagen="";
 	this.fecha=new Date().toISOString().slice(0, 19).replace('T', ' ');;
 	this.categoria_id="";
-	this.usuario_id=0;
+	this.usuario_id= "";
   }
 }

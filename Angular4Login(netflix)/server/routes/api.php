@@ -24,7 +24,7 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 
 		Route::resource('pelicula','PeliculaController',['except'=>['create','edit']]);
 
-		Route::resource('users','UsersController',['except'=>['create','edit']]);
+		//Route::resource('user','UsersController',['except'=>['create','edit']]);
 
 		Route::resource('noticia','NoticiaController',['except'=>['create','edit']]);
 
@@ -32,6 +32,16 @@ Route::group(['middleware' => ['jwt.auth']], function () {
 	});	
 
 });
+
+Route::group(['middleware' => ['cors']], function () {
+
+		
+
+		Route::resource('user','UsersController',['except'=>['create','edit']]);
+
+	
+	});	
+
 //Nueva ruta para el login
 Route::post('/login', 'AuthController@userAuth');
 

@@ -7,6 +7,9 @@ import { DetalleNoticiaComponent } from './detalle-noticia/detalle-noticia.compo
 import { Categoria } from '../../Models/categoria.model';
 import { CategoriasService } from '../../Services/categorias.service';
 
+import { Usuario } from '../../Models/usuario.model';
+import { UsuariosService } from '../../Services/usuarios.service';
+
 //DATATABLE
 import {DataSource} from '@angular/cdk/collections';
 import {MatPaginator, MatSort} from '@angular/material';
@@ -36,6 +39,7 @@ export class NoticiaComponent implements OnInit {
 
   public totalNoticias:Noticia[];
   public totalCategorias:Categoria[];
+  public totalUsuarios:Usuario[];
   public buscarPorTitular: boolean;
 
   displayedColumns = ['Acciones', 'Titular', 'Entrada'];
@@ -49,10 +53,13 @@ export class NoticiaComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
 
-  constructor(public servicioNoticia:NoticiasService,public servicioCategoria:CategoriasService,public dialog: MatDialog) {
+  constructor(public servicioNoticia:NoticiasService,public servicioCategoria:CategoriasService,
+    public dialog: MatDialog, public servicioUsuario:UsuariosService) {
 
   	this.totalNoticias=[];
     this.totalCategorias=[];
+    this.totalUsuarios=[];
+    this.actualizarUsuarios();
     this.actualizarCategorias();
     this.actualizarNoticias();
 
@@ -74,6 +81,8 @@ export class NoticiaComponent implements OnInit {
 
   }
 
+
+//funciones apra trabajar búsquedas y datatable
 
   isAllSelected(): boolean
   {
@@ -100,23 +109,32 @@ export class NoticiaComponent implements OnInit {
     }
   }
 
+
+//funciones para llamar dialogs a través de los botones de acciones
 actualizarCategorias ()
   {
     this.servicioCategoria.getCategorias().subscribe(data => {
       var todo: any = data;
-      //todo = todo.data;
       this.totalCategorias = todo;
     });
   }
+
+ actualizarUsuarios(){
+   this.servicioUsuario.getUsuarios().subscribe(data=>{
+     var todo:any=data;
+     this.totalUsuarios=data;
+   })
+
+ }
 
 
   actualizarNoticias ()
   {
     this.servicioNoticia.getNoticias().subscribe(data => {
       var todo: any = data;
-      //todo = todo.data;
       this.totalNoticias = todo;
       this.reemplazarIdPorString();
+      this.reemplazarIdPorStringUsuario();
 
       //DATATABLE
       this.exampleDatabase  = new ExampleDatabase(this.totalNoticias);
@@ -152,12 +170,16 @@ actualizarCategorias ()
     var a = JSON.parse( JSON.stringify(noticia) );
 
     this.pasarStringId(a);
+    this.pasarStringIdUsuario(a);
 
     let dialogRef = this.dialog.open(EditarNoticiaComponent, {
       width: '700px',
       data:
       {
-       noticia: a
+       noticia: a,
+       totalCategorias:this.totalCategorias,
+       servicioCategoria:this.servicioCategoria,
+       servicioNoticia:this.servicioNoticia
       }
     });
 
@@ -188,10 +210,7 @@ actualizarCategorias ()
    detalleNoticia(noticia)
   {
 
-   // var a = JSON.parse( JSON.stringify(noticia) );
-
-   // this.pasarStringId(a);
-
+ 
 
     let dialogRef = this.dialog.open(DetalleNoticiaComponent, {
       width: '700px',
@@ -206,13 +225,13 @@ actualizarCategorias ()
     });
   }
 
-
+//serialización de categoría--
     reemplazarIdPorString()
   {
     for(let i = 0 ; i < this.totalNoticias.length ; i ++)
     {
 
-      for(let j = 0 ; j < this.totalNoticias.length ; j++)
+      for(let j = 0 ; j < this.totalCategorias.length ; j++)
       {
         if(parseInt(this.totalNoticias[i].categoria_id) === this.totalCategorias[j].id)
         {
@@ -236,6 +255,41 @@ actualizarCategorias ()
     }
 
   }
+
+  //-----
+
+  //serialización del usuario
+
+    reemplazarIdPorStringUsuario()
+  {
+    for(let i = 0 ; i < this.totalNoticias.length ; i ++)
+    {
+
+      for(let j = 0 ; j < this.totalUsuarios.length ; j++)
+      {
+        if(parseInt(this.totalNoticias[i].usuario_id) === this.totalUsuarios[j].id)
+        {
+          this.totalNoticias[i].usuario_id = this.totalUsuarios[j].name;
+          break;
+        }
+      }
+
+    }
+  }
+
+
+  pasarStringIdUsuario(noticia)
+  {
+    for ( let i = 0 ; i < this.totalUsuarios.length ; i ++)
+    {
+      if(noticia.usuario_id === this.totalUsuarios[i].name)
+        {
+          noticia.usuario_id = this.totalUsuarios[i].id;
+        }
+    }
+
+  }
+
 
 
 

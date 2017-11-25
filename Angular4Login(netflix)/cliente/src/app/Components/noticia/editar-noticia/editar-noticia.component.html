@@ -1,3 +1,43 @@
-<p>
-  editar-noticia works!
-</p>
+<h1 mat-dialog-title style="text-align: center;">Edición de noticia</h1>
+
+<div mat-dialog-content>
+
+  <p>Titular</p>
+
+  <input matInput tabindex="1" [(ngModel)]="noticia.titular" required>
+
+  <p>Entrada</p>
+
+  <mat-form-field style="width: 100% !important;" >
+    <textarea matInput tabindex="1" [(ngModel)]="noticia.entrada" required></textarea>
+  </mat-form-field>
+
+   <p>Cuerpo</p>
+
+  <mat-form-field style="width: 100% !important;" >
+    <textarea matInput tabindex="1" [(ngModel)]="noticia.cuerpo" required> </textarea>
+  </mat-form-field>
+
+   <p>Imágen</p>
+
+  <input matInput tabindex="1" [(ngModel)]="noticia.imagen" required>
+
+   <p>Categoría</p>
+
+  <mat-form-field style="width: 100% !important;">
+    <mat-select placeholder="Categoría" style="width: 100% !important;" required>
+      <mat-option style="width: 100% !important;" *ngFor="let categoria of totalCategorias" [value]="categoria.id" (click)="categoriaSeleccionada(categoria)">
+        {{ categoria.descripcion }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  
+
+</div>
+
+
+<div mat-dialog-actions>
+	<button mat-button class="boton-aceptar" (click)="editarNoticia()" tabindex="2">Editar</button>
+	<button mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
+</div>

@@ -4,6 +4,7 @@ import { EventosService } from './Services/eventos.service';
 import { PeliculasService } from './Services/peliculas.service';
 import { NoticiasService } from './Services/noticias.service';
 import { CategoriasService } from './Services/categorias.service';
+import { UsuariosService } from './Services/usuarios.service';
 
 
 
@@ -156,6 +157,7 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
     PeliculasService,
     NoticiasService,
     CategoriasService,
+    UsuariosService,
 
     //GUARDS
     AuthGuard,
