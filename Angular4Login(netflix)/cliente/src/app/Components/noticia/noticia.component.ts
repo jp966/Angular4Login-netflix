@@ -19,7 +19,7 @@ import { EventosService } from '../../Services/eventos.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 
 //DATATABLE
-
+/*
 import {DataSource} from '@angular/cdk/collections';
 import {MatPaginator, MatSort} from '@angular/material';
 import {SelectionModel} from '@angular/cdk/collections';
@@ -32,6 +32,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/distinctUntilChanged';
 import 'rxjs/add/operator/debounceTime';
 import { ExampleDatabase, ExampleDataSource } from '../Globals/datasource.component';
+*/
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -49,17 +50,19 @@ export class NoticiaComponent implements OnInit {
   //pagina de paginator
   public p:number=1;
 
-  displayedColumns = ['Acciones', 'Titular', 'Entrada'];
+  //displayedColumns = ['Acciones', 'Titular', 'Entrada'];
 
 
   //DATATABLE
-  
+  /*
   exampleDatabase;
   selection = new SelectionModel<string>(true, []);
   dataSource: ExampleDataSource | null;
+
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild('filter') filter: ElementRef;
+  */
 
   constructor(public servicioNoticia:NoticiasService,public servicioCategoria:CategoriasService,
     public dialog: MatDialog, public servicioUsuario:UsuariosService, 

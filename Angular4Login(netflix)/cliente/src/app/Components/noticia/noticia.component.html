@@ -2,8 +2,7 @@
   <h3>Noticias</h3>
 </div>
 
-<ul>
-  <li>
+<div class="main-div">
   <mat-card class="tarjeta-noticia" *ngFor="let noticia of totalNoticias | paginate: { itemsPerPage: 3, currentPage: p }">
 
     <mat-card-title>
@@ -20,7 +19,7 @@
 
     </mat-card-content>
 
-    <img class="imagen-noticia" mat-card-image src={{noticia.imagen}}>
+    <img mat-card-image src={{noticia.imagen}}>
 
     <mat-card-actions layout="row" layout-align="start center">
      
@@ -41,9 +40,7 @@
     </mat-card-actions>
 
   </mat-card>
-</li>
-
-</ul>
+</div>
 
 <pagination-controls (pageChange)="p = $event"></pagination-controls>
 

@@ -1,10 +1,16 @@
 .tarjeta-noticia{
-	width: 450px;
+	width: 80vh;
 	background-color: #f2f2f2;
 	margin: 0px 10px 10px 10px;
-	display: inline-block;
+	/*display: inline-block;*/
 }
 
-.imagen-noticia{
-	height: 100%;
+
+.main-div{
+  /* height: 100vh;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
+
