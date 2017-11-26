@@ -18,21 +18,6 @@ import { EventosService } from '../../Services/eventos.service';
 //paginator
 import {NgxPaginationModule} from 'ngx-pagination';
 
-//DATATABLE
-/*
-import {DataSource} from '@angular/cdk/collections';
-import {MatPaginator, MatSort} from '@angular/material';
-import {SelectionModel} from '@angular/cdk/collections';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/startWith';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/observable/fromEvent';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/distinctUntilChanged';
-import 'rxjs/add/operator/debounceTime';
-import { ExampleDatabase, ExampleDataSource } from '../Globals/datasource.component';
-*/
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 @Component({
@@ -49,20 +34,6 @@ export class NoticiaComponent implements OnInit {
   public isLogged:boolean=false;
   //pagina de paginator
   public p:number=1;
-
-  //displayedColumns = ['Acciones', 'Titular', 'Entrada'];
-
-
-  //DATATABLE
-  /*
-  exampleDatabase;
-  selection = new SelectionModel<string>(true, []);
-  dataSource: ExampleDataSource | null;
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild('filter') filter: ElementRef;
-  */
 
   constructor(public servicioNoticia:NoticiasService,public servicioCategoria:CategoriasService,
     public dialog: MatDialog, public servicioUsuario:UsuariosService, 
@@ -88,50 +59,9 @@ export class NoticiaComponent implements OnInit {
    }
 
   ngOnInit() {
-/*
-    this.dataSource = new ExampleDataSource(new ExampleDatabase([]), this.paginator, this.sort, 'Noticia');
-    Observable.fromEvent(this.filter.nativeElement, 'keyup')
-        .debounceTime(150)
-        .distinctUntilChanged()
-        .subscribe(() => {
-          if (!this.dataSource) { return; }
-          this.dataSource.filter = this.filter.nativeElement.value;
-        })
-
-
-    this.exampleDatabase = []
-    */
 
   }
 
-
-//funciones apra trabajar búsquedas y datatable
-/*
-  isAllSelected(): boolean
-  {
-    if (!this.dataSource) { return false; }
-    if (this.selection.isEmpty()) { return false; }
-
-    if (this.filter.nativeElement.value) {
-      return this.selection.selected.length == this.dataSource.renderedData.length;
-    } else {
-      return this.selection.selected.length == this.exampleDatabase.data.length;
-    }
-  }
-
-  masterToggle()
-  {
-    if (!this.dataSource) { return; }
-
-    if (this.isAllSelected()) {
-      this.selection.clear();
-    } else if (this.filter.nativeElement.value) {
-      this.dataSource.renderedData.forEach(data => this.selection.select(data.id));
-    } else {
-      this.exampleDatabase.data.forEach(data => this.selection.select(data.id));
-    }
-  }
-*/
 
 //funciones para llamar dialogs a través de los botones de acciones
 actualizarCategorias ()
@@ -158,20 +88,6 @@ actualizarCategorias ()
       this.totalNoticias = todo;
       this.reemplazarIdPorString();
       this.reemplazarIdPorStringUsuario();
-
-      //DATATABLE
-      /*
-      this.exampleDatabase  = new ExampleDatabase(this.totalNoticias);
-
-      this.dataSource = new ExampleDataSource(this.exampleDatabase, this.paginator, this.sort, 'Noticia');
-      Observable.fromEvent(this.filter.nativeElement, 'keyup')
-          .debounceTime(150)
-          .distinctUntilChanged()
-          .subscribe(() => {
-            if (!this.dataSource) { return; }
-            this.dataSource.filter = this.filter.nativeElement.value;
-          })
-      */
 
     });
   }

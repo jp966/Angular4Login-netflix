@@ -1,7 +1,6 @@
 //SERVICIOS
 import {AuthenticationService} from './Services/authentication.service';
 import { EventosService } from './Services/eventos.service';
-import { PeliculasService } from './Services/peliculas.service';
 import { NoticiasService } from './Services/noticias.service';
 import { CategoriasService } from './Services/categorias.service';
 import { UsuariosService } from './Services/usuarios.service';
@@ -66,7 +65,6 @@ import { AppComponent } from './app.component';
 import { MensajeErrorComponent } from './Components/Globals/mensaje-error/mensaje-error.component';
 import { LoginComponent } from './Components/login/login.component';
 import { toolbarComponent } from './Components/toolbar/toolbar.component';
-import { PeliculasComponent } from './Components/peliculas/peliculas.component';
 import { PrincipalComponent } from './Components/principal/principal.component';
 import { NoticiaComponent } from './Components/noticia/noticia.component';
 import { CategoriaComponent } from './Components/categoria/categoria.component';
@@ -85,7 +83,6 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
     MensajeErrorComponent,
     LoginComponent,
     toolbarComponent,
-    PeliculasComponent,
     PrincipalComponent,
     NoticiaComponent,
     CategoriaComponent,
@@ -156,7 +153,6 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
     appRoutingProviders,
     AuthenticationService,
     EventosService,
-    PeliculasService,
     NoticiasService,
     CategoriasService,
     UsuariosService,

@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from '../Components/login/login.component';
 
-import { PeliculasComponent } from '../Components/peliculas/peliculas.component';
-
 import { PrincipalComponent } from '../Components/principal/principal.component'; 
 
 import { AuthGuard } from '../Guards/auth.guard';
