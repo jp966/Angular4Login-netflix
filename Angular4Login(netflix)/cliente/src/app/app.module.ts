@@ -71,6 +71,7 @@ import { CategoriaComponent } from './Components/categoria/categoria.component';
 import { AgregarNoticiaComponent } from './Components/noticia/agregar-noticia/agregar-noticia.component';
 import { EditarNoticiaComponent } from './Components/noticia/editar-noticia/editar-noticia.component';
 import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/detalle-noticia.component';
+import { MiNoticiaComponent } from './Components/noticia/mi-noticia/mi-noticia.component';
 
 
 
@@ -88,7 +89,8 @@ import { DetalleNoticiaComponent } from './Components/noticia/detalle-noticia/de
     CategoriaComponent,
     AgregarNoticiaComponent,
     EditarNoticiaComponent,
-    DetalleNoticiaComponent
+    DetalleNoticiaComponent,
+    MiNoticiaComponent
   ],
 
   entryComponents:

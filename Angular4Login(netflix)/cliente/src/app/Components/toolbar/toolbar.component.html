@@ -11,6 +11,8 @@
 		<button mat-button class="boton-tb" (click)="irInicio()">Inicio</button>
 	   
 	     <button mat-button class="boton-tb" (click)="irNoticias()">Noticias</button>
+
+	     <button mat-button class="boton-tb" *ngIf="isLogged" (click)="irMisNoticias()">Mis noticias</button>
     </mat-toolbar-row>	
 
 

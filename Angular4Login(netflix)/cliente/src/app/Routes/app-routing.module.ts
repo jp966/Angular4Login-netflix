@@ -11,10 +11,14 @@ import { LoginGuard } from '../Guards/login.guard';
 
 import { NoticiaComponent } from '../Components/noticia/noticia.component';
 
+import { MiNoticiaComponent } from '../Components/noticia/mi-noticia/mi-noticia.component';
+
 const routes: Routes =
 [
 
   { path: 'login',  component: LoginComponent, canActivate: [LoginGuard]},
+
+  { path:'noticias-usuario', component: MiNoticiaComponent, canActivate: [AuthGuard]},
 
   { path: 'noticias', component: NoticiaComponent},
 

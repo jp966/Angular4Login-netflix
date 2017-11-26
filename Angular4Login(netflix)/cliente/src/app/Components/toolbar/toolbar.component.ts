@@ -33,10 +33,6 @@ export class toolbarComponent implements OnInit {
   	this.router.navigate(['login']);
   }
 
-  irPeliculas(){
-    this.router.navigate(['peliculas']);
-  }
-
   irInicio(){
     this.router.navigate(['']);
   }
@@ -44,6 +40,10 @@ export class toolbarComponent implements OnInit {
   irNoticias(){
     this.router.navigate(['noticias']);
   
+  }
+
+  irMisNoticias(){
+    this.router.navigate(['noticias-usuario']);
   }
 
 

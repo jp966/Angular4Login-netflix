@@ -1,0 +1,16 @@
+.tarjeta-noticia{
+	width: 80vh;
+	background-color: #f2f2f2;
+	margin: 0px 10px 10px 10px;
+	/*display: inline-block;*/
+}
+
+
+.main-div{
+  /* height: 100vh;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
