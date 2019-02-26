@@ -67,7 +67,7 @@ export class NoticiaComponent implements OnInit {
 actualizarCategorias ()
   {
     this.servicioCategoria.getCategorias().subscribe(data => {
-      var todo: any = data;
+      var todo = data;
       this.totalCategorias = todo;
     });
   }
