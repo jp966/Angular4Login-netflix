@@ -79,55 +79,7 @@ actualizarCategorias ()
    })
 
  }
-//duplicado
-actualizarCategorias ()
-  {
-    this.servicioCategoria.getCategorias().subscribe(data => {
-      var todo = data;
-      this.totalCategorias = todo;
-    });
-  }
 
-actualizarCategorias ()
-{
-this.servicioCategoria.getCategorias().subscribe(data => {
-  var todo = data;
-  this.totalCategorias = todo;
-});
-}
-
-actualizarUsuarios(){
-   this.servicioUsuario.getUsuarios().subscribe(data=>{
-     var todo:any=data;
-     this.totalUsuarios=data;
-   })
-
-}
-
-actualizarUsuarios(){
-   this.servicioUsuario.getUsuarios().subscribe(data=>{
-     var todo:any=data;
-     this.totalUsuarios=data;
-   })
-
-}
-
-actualizarCategorias ()
-  {
-    this.servicioCategoria.getCategorias().subscribe(data => {
-      var todo = data;
-      this.totalCategorias = todo;
-    });
-  }
-
- actualizarUsuarios(){
-   this.servicioUsuario.getUsuarios().subscribe(data=>{
-     var todo:any=data;
-     this.totalUsuarios=data;
-   })
-
- }
-//fin duplicado
   actualizarNoticias ()
   {
     this.servicioNoticia.getNoticias().subscribe(data => {
@@ -175,6 +127,32 @@ actualizarCategorias ()
       this.actualizarNoticias();
     });
   }
+
+   edicionNoticia (noticia)
+  {
+
+    var a = JSON.parse( JSON.stringify(noticia) );
+
+    this.pasarStringId(a);
+    this.pasarStringIdUsuario(a);
+
+    let dialogRef = this.dialog.open(EditarNoticiaComponent, {
+      width: '700px',
+      data:
+      {
+       noticia: a,
+       totalCategorias:this.totalCategorias,
+       servicioCategoria:this.servicioCategoria,
+       servicioNoticia:this.servicioNoticia
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+
+      this.actualizarNoticias();
+    });
+  }
+
 
   agregacionNoticia()
   {
