@@ -79,7 +79,41 @@ actualizarCategorias ()
    })
 
  }
+//duplicado
+actualizarCategorias ()
+  {
+    this.servicioCategoria.getCategorias().subscribe(data => {
+      var todo = data;
+      this.totalCategorias = todo;
+    });
+  }
 
+ actualizarUsuarios(){
+   this.servicioUsuario.getUsuarios().subscribe(data=>{
+     var todo:any=data;
+     this.totalUsuarios=data;
+   })
+
+ }
+
+
+actualizarCategorias ()
+  {
+    this.servicioCategoria.getCategorias().subscribe(data => {
+      var todo = data;
+      this.totalCategorias = todo;
+    });
+  }
+
+ actualizarUsuarios(){
+   this.servicioUsuario.getUsuarios().subscribe(data=>{
+     var todo:any=data;
+     this.totalUsuarios=data;
+   })
+
+ }
+
+//fin duplicado
 
   actualizarNoticias ()
   {
